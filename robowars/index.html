@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register For Valhalla : CCS</title>
+ <!-- Compiled and minified CSS -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">    
+ 
+ <style>
+    html,body{
+        margin:0;
+        padding: 0;
+    }
+
+    body{
+        background-image: url("./bg.png");
+        background-color: rgba(0,0,0,0.6);
+        background-blend-mode: color;
+    }
+    *{
+        color: white;
+    }
+
+
+
+    .modal{
+        background-color: rgb(30, 30, 30);
+    }
+    .roboButton {  
+        padding: 0.75em 2em;
+        font-size: 1.25rem; 
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: #fff;
+        text-shadow: 0 5px 20px rgba(192, 36, 0, 0.4), 0 2px 2px rgba(192, 36, 0, 0.4);
+        background-image: radial-gradient(
+          100% 75% at 50% 100%,
+          #fed262 0%,
+          #c40900 100%
+        );
+        border: none;
+        border-radius: 100px;
+        box-shadow: inset 0 3px 15px 0 rgba(174, 32, 0, 1),
+          inset 0 -3px 0 0 rgba(254, 210, 98, 1),
+          inset 0 40px 0 0 rgba(254, 210, 98, 0.4),
+          inset 0 20px 20px 0 rgba(248, 191, 69, 1),
+          0 0 0 8px #000, 
+          0 9px 0 0 #444,
+          0 0 20px 0 rgba(254, 210, 98, 0.4),
+          0 40px 20px -30px rgba(254, 210, 98, 0.2);
+      
+        transition: 0.2s ease-in-out;      
+        &:hover {
+          cursor: pointer;
+          background-image: radial-gradient(
+            100% 75% at 50% 100%,
+            #f7b940 0%,
+            #a20700 100%
+          );
+        }
+      
+        &:focus,
+        &:active {
+          outline: none;
+          color: #f9e3bf;
+          background-image: radial-gradient(
+            100% 75% at 50% 100%,
+            #f58725 0%,
+            #850600 100%
+          );
+          box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.4),
+            inset 0 0 10px rgba(133, 6, 0, 1), inset 0 3px 15px 0 rgba(174, 32, 0, 1),
+            inset 0 40px 0 0 rgba(254, 210, 98, 0.3),
+            inset 0 20px 20px 0 rgba(248, 191, 69, 0.75), 0 0 0 8px #000,
+            0 9px 0 0 #444;
+        }
+      }
+
+      
+
+ </style>
+</head>
+    <body>
+    <div class="center-align">
+
+    <h5 style="color: grey;">CCS PRESENTS</h5>
+   
+    <div class="row imageBox">
+            <img src="./header.png" class="responsive-img col s12 l4 m8 offset-l4 offset-m3"/>
+    </div>
+    </div>
+
+
+    <div class="container">
+        <hr>
+
+    <h3>Rules for Valhalla</h3>
+    <p>Teams of up to 5 students.</p>
+    <p>Score 1 point for moving 5-inch hollow cardboard boxes to designated areas.</p>
+    <p>Earn 2 points by capturing enemy boxes.</p>
+    <p>Boxes must be carried using your rover/drone (dragged/picked).</p>
+    <p>Rover/drone must be under 20 inches.</p>
+    <hr>
+
+        <h4 style="margin-bottom: 20px;">Register</h4>
+        <form id="data-form">
+          <div class="input-field">
+            <input type="text" id="teamName" name="teamName" required>
+            <label for="teamName">Team Name</label>
+          </div>
+          <div class="input-field">
+            <input type="text" id="leaderName" name="leaderName" required>
+            <label for="leaderName">Leader Name</label>
+          </div>
+          <div class="input-field">
+            <input type="email" id="leaderEmail" name="leaderEmail" required>
+            <label for="leaderEmail">Leader Email</label>
+          </div>
+          <div class="input-field">
+            <input type="text" id="leaderPhone" name="leaderPhone" required>
+            <label for "leaderPhone">Leader Phone</label>
+          </div>
+          <div class="input-field">
+            <input type="text" id="teamMembers" name="teamMembers" required>
+            <label for="teamMembers">Team Members</label>
+          </div>
+          <p>Type Rover:</p>
+          <label>
+            <input type="radio" name="typeRover" value="Rover" required />
+            <span>Rover</span>
+          </label>
+          <label>
+            <input type="radio" name="typeRover" value="Drone" required />
+            <span>Drone</span>
+          </label>
+          <label>
+            <input type="radio" name="typeRover" value="Other" id="otherRover" required />
+            <span>Other</span>
+          </label>
+          <div class="input-field" id="otherRoverField" style="display: none;">
+            <input type="text" id="otherRoverInput" name="otherRoverInput">
+            <label for="otherRoverInput">Specify Other Rover</label>
+          </div>
+          <div class="progress" style="display: none;">
+            <div class="indeterminate"></div>
+          </div>
+          <br>
+          <br>
+          <button class="roboButton" type="submit">Submit</button>
+        </form>
+
+        <br>
+        <hr>
+
+        <br>
+        <br>
+        <div class="center-align">
+            <img src="./footer.png" class="responsive-img"/>
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+      </div>
+
+
+      <div id="error-modal" class="modal">
+        <div class="modal-content">
+          <h4>Error</h4>
+          <p id="error-message"></p>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-close waves-effect waves-green btn-flat">OK</a>
+        </div>
+      </div>
+    
+      
+
+      <!-- Add a modal for success messages -->
+<div id="success-modal" class="modal">
+    <div class="modal-content">
+      <h4>Success</h4>
+      <p>Registered successfully.</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">OK</a>
+    </div>
+  </div>
+  
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          M.AutoInit(); // Initialize Materialize components
+    
+          const form = document.getElementById('data-form');
+          const progressBar = document.querySelector('.progress');
+          const otherRoverRadio = document.getElementById('otherRover');
+          const otherRoverField = document.getElementById('otherRoverField');
+          const otherRoverInput = document.getElementById('otherRoverInput');
+          
+          const errorModal = document.getElementById('error-modal');
+          const successModal = document.getElementById('success-modal');
+          const errorMessage = document.getElementById('error-message');
+
+
+          form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            progressBar.style.display = 'block';
+
+
+            var formData = new FormData(form);
+            
+            if (otherRoverRadio.checked) {
+              // If "Other" is selected, include the specified value in the form data
+              formData.append('typeRover', otherRoverInput.value);
+            } else {
+              // If any other radio button is selected, clear the "Other Rover" field
+              otherRoverInput.value = '';
+            }
+
+
+            
+            fetch('https://worker-sparkling-cell-8d2f.goincop2.workers.dev/', {
+              method: 'POST',
+              body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+              progressBar.style.display = 'none';
+
+              console.log(data);
+
+              if (data.error) {
+                // Display error modal
+                errorMessage.textContent = data.error;
+                M.Modal.getInstance(errorModal).open();
+              } else {
+                // Display success modal
+                M.Modal.getInstance(successModal).open();
+              }
+
+
+              console.log(data); // Handle the response from your Cloudflare Worker
+            })
+            .catch(error => {
+              progressBar.style.display = 'none';
+              console.error(error);
+              alert('Error submitting the form. Please try again.');
+            });
+          });
+
+          const radioButtons = document.querySelectorAll('input[type="radio"]');
+              for (const radioButton of radioButtons) {              
+            radioButton.addEventListener('change', function(e) {
+            console.log(e.target.value);
+            if (otherRoverRadio.checked) {
+              otherRoverField.style.display = 'block';
+            } else {
+              otherRoverField.style.display = 'none';
+            }
+          });
+     
+              }
+
+
+              
+        });
+      </script>
+    
+
+</body>
+</html>
