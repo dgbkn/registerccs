@@ -216,7 +216,8 @@
             
             if (otherRoverRadio.checked) {
               // If "Other" is selected, include the specified value in the form data
-              formData.append('typeRover', otherRoverInput.value);
+              formData.set('typeRover', otherRoverInput.value);
+              formData.delete('otherRoverInput');
             } else {
               // If any other radio button is selected, clear the "Other Rover" field
               otherRoverInput.value = '';
