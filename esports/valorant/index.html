@@ -172,30 +172,30 @@
         M.AutoInit();
       });
 
-      document
-        .getElementById("dataForm")
-        .addEventListener("submit", function (event) {
-          event.preventDefault();
-          const formData = new FormData(event.target);
-          const progressBar = document.querySelector('.progress');
+      const form = document.getElementById("dataForm");
 
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        console.log('Form submitted');
+        const formData = new FormData(form);
+        submitFormData(formData);
+      });
 
       async function submitFormData(formData) {
         try {
-          progressBar.style.display = 'block';
-
+            const progressBar = document.querySelector('.progress');
+            progressBar.style.display = 'block';
 
           const response = await fetch("https://valo.goincop2.workers.dev/", {
             method: "POST",
             body: formData,
           });
 
-          var res = await response.json();
-
+          const res = await response.json();
           progressBar.style.display = 'none';
 
           if (res.error) {
-            M.toast({ html: "Error " + res.error, classes: "red" });
+            M.toast({ html: "Error: " + res.error, classes: "red" });
           } else {
             M.toast({ html: "Form submitted successfully", classes: "green" });
           }
@@ -204,7 +204,8 @@
           M.toast({ html: "Error: " + error.message, classes: "red" });
         }
       }
-    });
+
     </script>
+
   </body>
 </html>

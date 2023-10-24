@@ -161,44 +161,46 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        M.AutoInit();
-      });
-
-      document
-        .getElementById("dataForm")
-        .addEventListener("submit", function (event) {
+        document.addEventListener("DOMContentLoaded", function () {
+          M.AutoInit();
+        });
+  
+        const form = document.getElementById("dataForm");
+  
+        form.addEventListener("submit", function (event) {
           event.preventDefault();
-          const formData = new FormData(event.target);
-          const progressBar = document.querySelector('.progress');
+          console.log('Form submitted');
+          const formData = new FormData(form);
+          submitFormData(formData);
+        });
+  
+        async function submitFormData(formData) {
+          try {
+              const progressBar = document.querySelector('.progress');
+              progressBar.style.display = 'block';
 
-
-      async function submitFormData(formData) {
-        try {
-            progressBar.style.display = 'block';
-
-
-          const response = await fetch("https://bgmi.goincop2.workers.dev/", {
-            method: "POST",
-            body: formData,
-          });
-
-          var res = await response.json();
-
-          progressBar.style.display = 'none';
-
-          if (res.error) {
-            M.toast({ html: "Error " + res.error, classes: "red" });
-          } else {
-            M.toast({ html: "Form submitted successfully", classes: "green" });
+            const response = await fetch("https://valo.goincop2.workers.dev/", {
+              method: "POST",
+              body: formData,
+            });
+  
+            const res = await response.json();
+            progressBar.style.display = 'none';
+  
+            if (res.error) {
+              M.toast({ html: "Error: " + res.error, classes: "red" });
+            } else {
+              M.toast({ html: "Form submitted successfully", classes: "green" });
+            }
+          } catch (error) {
+            // Handle error
+            M.toast({ html: "Error: " + error.message, classes: "red" });
           }
-        } catch (error) {
-          // Handle error
-          M.toast({ html: "Error: " + error.message, classes: "red" });
         }
-      }
-    });
-    </script>
+  
+      </script>
+
   </body>
 </html>
