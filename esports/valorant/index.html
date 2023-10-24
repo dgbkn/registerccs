@@ -177,6 +177,7 @@
         .addEventListener("submit", function (event) {
           event.preventDefault();
           const formData = new FormData(event.target);
+          const progressBar = document.querySelector('.progress');
 
 
       async function submitFormData(formData) {
