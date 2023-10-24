@@ -202,7 +202,7 @@
             M.toast({ html: "Error: " + res.error, classes: "bold-toast red" });
           } else {
             M.toast({ html: "Form submitted successfully", classes: "bold-toast green" });
-            form.reset();
+            document.getElementById("dataForm").reset();
           }
         } catch (error) {
           // Handle error
