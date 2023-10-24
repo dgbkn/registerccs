@@ -104,42 +104,42 @@ async function handleRequest(request) {
         });
       }
 
-      if (!isValidGoogleDriveLink(entry11)){
-        const errorResponse = {
-          error: "Invalid Google Drive link",
-        };
-        return new Response(JSON.stringify(errorResponse), {
-          status: 200,
-          headers: {
-            "Content-Type": "application/json",
-            ...corsHeaders,
-          },
-        });
-      }
+      // if (!isValidGoogleDriveLink(entry11)){
+      //   const errorResponse = {
+      //     error: "Invalid Google Drive link",
+      //   };
+      //   return new Response(JSON.stringify(errorResponse), {
+      //     status: 200,
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //       ...corsHeaders,
+      //     },
+      //   });
+      // }
 
-      if (
-        !entry1 ||
-        !entry2 ||
-        !entry3 ||
-        !entry4 ||
-        !entry5 ||
-        !entry6 ||
-        !entry7 ||
-        !entry8 ||
-        !entry9 ||
-        !entry10
-      ) {
-        const errorResponse = {
-          error: "Please fill all the fields",
-        };
-        return new Response(JSON.stringify(errorResponse), {
-          status: 200,
-          headers: {
-            "Content-Type": "application/json",
-            ...corsHeaders,
-          },
-        });
-      }
+      // if (
+      //   !entry1 ||
+      //   !entry2 ||
+      //   !entry3 ||
+      //   !entry4 ||
+      //   !entry5 ||
+      //   !entry6 ||
+      //   !entry7 ||
+      //   !entry8 ||
+      //   !entry9 ||
+      //   !entry10
+      // ) {
+      //   const errorResponse = {
+      //     error: "Please fill all the fields",
+      //   };
+      //   return new Response(JSON.stringify(errorResponse), {
+      //     status: 200,
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //       ...corsHeaders,
+      //     },
+      //   });
+      // }
 
       // Submit the incoming data to an external Google Form
       await submitToGoogleForm(
@@ -151,7 +151,9 @@ async function handleRequest(request) {
         entry6,
         entry7,
         entry8,
-        entry9
+        entry9,
+        entry10,
+        entry11
       );
 
       const successResponse = {
@@ -206,7 +208,7 @@ async function submitToGoogleForm(
   entry11
 ) {
   const formUrl =
-    "https://docs.google.com/forms/u/1/d/e/1FAIpQLScniw97Al8EQ877ftJpYCYjIvHP0eBNJiomb4HZN26hzea9Sg/formResponse";
+    "https://docs.google.com/forms/d/e/1FAIpQLSf-iVfiq-WUuFGoveD2P3YzU4wY5aG00VWKD8a6XemMmO75Iw/formResponse";
 
   const urlencoded = new FormData();
 

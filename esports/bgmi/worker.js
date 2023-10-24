@@ -87,40 +87,40 @@ async function handleRequest(request) {
         });
       }
 
-      if (!isValidGoogleDriveLink(entry9)) {
-        const errorResponse = {
-          error: "Invalid Google Drive link",
-        };
-        return new Response(JSON.stringify(errorResponse), {
-          status: 200,
-          headers: {
-            "Content-Type": "application/json",
-            ...corsHeaders,
-          },
-        });
-      }
+      // if (!isValidGoogleDriveLink(entry9)) {
+      //   const errorResponse = {
+      //     error: "Invalid Google Drive link",
+      //   };
+      //   return new Response(JSON.stringify(errorResponse), {
+      //     status: 200,
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //       ...corsHeaders,
+      //     },
+      //   });
+      // }
 
-      if (
-        !entry1 ||
-        !entry2 ||
-        !entry3 ||
-        !entry4 ||
-        !entry5 ||
-        !entry6 ||
-        !entry7 ||
-        !entry8 
-      ) {
-        const errorResponse = {
-          error: "Please fill all the fields",
-        };
-        return new Response(JSON.stringify(errorResponse), {
-          status: 200,
-          headers: {
-            "Content-Type": "application/json",
-            ...corsHeaders,
-          },
-        });
-      }
+      // if (
+      //   !entry1 ||
+      //   !entry2 ||
+      //   !entry3 ||
+      //   !entry4 ||
+      //   !entry5 ||
+      //   !entry6 ||
+      //   !entry7 ||
+      //   !entry8 
+      // ) {
+      //   const errorResponse = {
+      //     error: "Please fill all the fields",
+      //   };
+      //   return new Response(JSON.stringify(errorResponse), {
+      //     status: 200,
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //       ...corsHeaders,
+      //     },
+      //   });
+      // }
 
       // Submit the incoming data to an external Google Form
       await submitToGoogleForm(
@@ -185,7 +185,7 @@ async function submitToGoogleForm(
   entry9
 ) {
   const formUrl =
-    "https://docs.google.com/forms/u/1/d/e/1FAIpQLScniw97Al8EQ877ftJpYCYjIvHP0eBNJiomb4HZN26hzea9Sg/formResponse";
+    "https://docs.google.com/forms/d/e/1FAIpQLScniw97Al8EQ877ftJpYCYjIvHP0eBNJiomb4HZN26hzea9Sg/formResponse";
 
   const formData = new FormData();
   formData.append("entry.1616276106", entry1);

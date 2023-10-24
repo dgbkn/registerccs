@@ -79,6 +79,10 @@
             0 9px 0 0 #444;
         }
       }
+
+      .toast.bold-toast {
+        font-weight: 700;
+      }
     </style>
   </head>
   <body>
@@ -190,13 +194,13 @@
             progressBar.style.display = 'none';
   
             if (res.error) {
-              M.toast({ html: "Error: " + res.error, classes: "red" });
+              M.toast({ html: "Error: " + res.error, classes: "bold-toast red" });
             } else {
-              M.toast({ html: "Form submitted successfully", classes: "green" });
+              M.toast({ html: "Form submitted successfully", classes: "bold-toast green" });
             }
           } catch (error) {
             // Handle error
-            M.toast({ html: "Error: " + error.message, classes: "red" });
+            M.toast({ html: "Error: " + error.message, classes: "bold-toast red" });
           }
         }
   
